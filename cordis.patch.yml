@@ -1,0 +1,26 @@
+# dsh-shutdown-guard-plus：任务完成后自动关机（分线版）
+- insert:
+    - id: dsh-shutdown-guard-plus
+      name: 'dsh-shutdown-guard-plus'
+      config:
+        countdownSec: 60
+        marginSec: 5
+        onlyOnSuccess: true
+        blockOnJobs: true
+        # 分线新增：全屏关机倒计时（默认开）与自动守夜（默认关）
+        fullscreen: true
+        autoArm: false
+        # auto | zh | en | ru — 'auto' follows the OS locale
+        language: auto
+        retryPolicies:
+          rate-limit: { mode: backoff, base: 30, max: 300 }
+          transient: { mode: fixed, every: 20 }
+          empty: { mode: fixed, every: 30 }
+          offload: { mode: fixed, every: 5 }
+        retryAssign:
+          RATE_LIMIT: rate-limit
+          SERVER: transient
+          TRANSPORT: transient
+          TIMEOUT: transient
+          EMPTY_RESPONSE: empty
+          IMAGE_OFFLOAD_REQUIRED: offload

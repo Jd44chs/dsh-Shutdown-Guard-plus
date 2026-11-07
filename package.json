@@ -1,0 +1,79 @@
+{
+  "name": "dsh-shutdown-guard-plus",
+  "version": "1.6.0-plus.1",
+  "description": "任务结束后自动关机（分线版）—— 在上游 dsh-Shutdown-Guard 基础上新增：全屏关机倒计时（可开关）、自动守夜（可开关）",
+  "author": {
+    "name": "ltayshark0637",
+    "url": "https://github.com/ltayshark0637"
+  },
+  "contributors": [
+    {
+      "name": "dsh-shutdown-guard-plus maintainers",
+      "url": "https://github.com/Jd44chs"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jd44chs/dsh-Shutdown-Guard-plus.git"
+  },
+  "homepage": "https://github.com/Jd44chs/dsh-Shutdown-Guard-plus#readme",
+  "bugs": {
+    "url": "https://github.com/Jd44chs/dsh-Shutdown-Guard-plus/issues"
+  },
+  "main": "lib/index.mjs",
+  "icon": "assets/icon-shield-2-128.png",
+  "files": [
+    "lib",
+    "assets/icon-shield-2-128.png",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node --check lib/index.mjs && node --check lib/i18n.mjs && node --check lib/client.js"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "shutdown",
+    "auto-shutdown",
+    "guard",
+    "idle",
+    "automation",
+    "windows",
+    "fullscreen",
+    "countdown",
+    "fork"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    },
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    }
+  },
+  "engines": {
+    "node": ">=22.19"
+  },
+  "os": [
+    "win32"
+  ],
+  "license": "MIT"
+}
