@@ -16,7 +16,7 @@ What this fork adds on top of upstream:
 ## Install
 
 ```powershell
-& "$env:LOCALAPPDATA\Programs\DeepSeekRuntime\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "path-or-package"
+& "$env:LOCALAPPDATA\Programs\DeepSeekRuntime\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:Jd44chs/dsh-Shutdown-Guard-plus"
 ```
 
 Restart DSH afterwards — `lib/client.js` is only bundled into the client module graph at startup.
