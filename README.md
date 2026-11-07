@@ -74,11 +74,22 @@ log('log.autoArmed') → setArmed(true) → 上游原有的 tryArm()
 
 ## 三、安装
 
+有两条路，任选一条：
+
+**① 直接从 GitHub 装（推荐）**
+
 ```powershell
-& "$env:LOCALAPPDATA\Programs\DeepSeekRuntime\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "你的路径或 npm 包名"
+& "$env:LOCALAPPDATA\Programs\DeepSeekRuntime\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:Jd44chs/dsh-Shutdown-Guard-plus"
 ```
 
-或者把仓库目录用 junction 挂进 profile 的 `node_modules`，再在 `cordis.patch.yml` 注册。
+**② 克隆到本地再装目录**（`github:` 前缀在你的 dsh 版本上不被接受时用这条）
+
+```powershell
+git clone https://github.com/Jd44chs/dsh-Shutdown-Guard-plus
+& "$env:LOCALAPPDATA\Programs\DeepSeekRuntime\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "E:\path\to\dsh-Shutdown-Guard-plus"
+```
+
+装完 `dsh.profile.bundles` 会自动追加 `dsh-shutdown-guard-plus`，无需手工登记。
 
 **装完必须重启 DSH**：`lib/client.js` 只在 DSH 启动时编入客户端模块图，刷新页面不会生效。
 
